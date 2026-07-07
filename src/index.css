@@ -1,0 +1,200 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+
+  /* Backgrounds */
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f5f5;
+  --color-background-info: #eff6ff;
+  --color-background-success: #f0fdf4;
+  --color-background-warning: #fffbeb;
+  --color-background-danger: #fef2f2;
+
+  /* Text */
+  --color-text-primary: #111111;
+  --color-text-secondary: #6b7280;
+  --color-text-info: #1d4ed8;
+  --color-text-success: #15803d;
+  --color-text-warning: #b45309;
+  --color-text-danger: #b91c1c;
+
+  /* Borders */
+  --color-border-primary: #d1d5db;
+  --color-border-secondary: #e5e7eb;
+  --color-border-tertiary: #f3f4f6;
+  --color-border-info: #93c5fd;
+
+  /* Border radii */
+  --border-radius-sm: 4px;
+  --border-radius-md: 6px;
+  --border-radius-lg: 10px;
+  --border-radius-xl: 14px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  background: #f9f9f9;
+  color: var(--color-text-primary);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: var(--font-sans);
+}
+
+select {
+  font-family: var(--font-sans);
+  padding: 6px 10px;
+  border: 1px solid var(--color-border-primary);
+  border-radius: var(--border-radius-md);
+  background: var(--color-background-primary);
+  color: var(--color-text-primary);
+  font-size: 13px;
+  cursor: pointer;
+  outline: none;
+}
+
+select:focus {
+  border-color: var(--color-border-info);
+}
+
+p {
+  margin: 0;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* ── Tab bar: horizontal scroll on narrow screens instead of wrapping into many rows ── */
+.tab-bar {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+.tab-bar::-webkit-scrollbar {
+  height: 6px;
+}
+.tab-bar::-webkit-scrollbar-thumb {
+  background: rgba(212,175,55,0.4);
+  border-radius: 4px;
+}
+
+/* ── Horizontally-scrollable wrapper for the dense positioning-map SVG ──
+   Rather than shrinking labels to illegibility on phones, the map keeps
+   its native size and the user pans across it. ── */
+.svg-scroll-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.svg-scroll-inner {
+  min-width: 640px;
+}
+
+@media (max-width: 900px) {
+  .app-root {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Hero */
+  .hero-banner {
+    height: auto !important;
+    min-height: 420px;
+  }
+  .hero-content {
+    padding: 32px 20px !important;
+    position: relative !important;
+    transform: none !important;
+  }
+  .hero-brand {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    justify-content: center;
+    padding: 16px 0 0;
+  }
+  .hero-title {
+    font-size: clamp(28px, 8vw, 40px) !important;
+    letter-spacing: -1px !important;
+  }
+  .hero-subtitle {
+    font-size: 15px !important;
+    padding: 0 4px;
+  }
+  .hero-eyebrow-text {
+    font-size: 12px !important;
+    letter-spacing: 2px !important;
+  }
+  .hero-eyebrow-rule {
+    width: 30px !important;
+  }
+  .hero-stats {
+    gap: 22px !important;
+  }
+  .hero-stat-group {
+    gap: 22px !important;
+  }
+  .hero-stat-divider {
+    height: 34px !important;
+  }
+
+  /* Fixed multi-column grids collapse to a single column */
+  .responsive-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Spectrum ranking rows stack the archetype label under the bar */
+  .spectrum-row {
+    flex-wrap: wrap;
+    row-gap: 4px;
+  }
+  .spectrum-bar-track {
+    min-width: 0;
+    flex-basis: calc(100% - 44px);
+  }
+  .spectrum-archetype {
+    min-width: 0 !important;
+    width: 100%;
+    text-align: left !important;
+    padding-left: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: clamp(24px, 9vw, 32px) !important;
+  }
+  .hero-crown {
+    font-size: 26px !important;
+  }
+  .hero-eyebrow {
+    gap: 10px !important;
+  }
+  .hero-stats {
+    gap: 16px !important;
+  }
+  .hero-stat-group {
+    gap: 16px !important;
+  }
+  html, body {
+    font-size: 13px;
+  }
+}
